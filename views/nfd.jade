@@ -1,20 +1,42 @@
-table
-  thead
-    td NFD ID
-    td Version
-    td Start Time
-    td Current Time
-    td UP Time
-    td Name Tree Entry
-    td FIB Entries
-    td PIT Entries
-    td Measurements entries
-    td CS entries
-    td In Interests
-    td Out Interests
-    td In Data
-    td Out Data
-  - each nfd in nfdData
+- each nfd in nfdData
+  h3 NFD #{nfd.nfdid} Status
+  table
     tr
-      td nfd["nfdid"]
-      td nfd["version"]
+      td Version
+      td= nfd.version
+    tr
+      td Start Time
+      td= nfd.startTime
+    tr
+      td Current Time
+      td= nfd.currentTime
+    tr
+      td UP Time
+      td= nfd.upTime
+    tr
+      td Name Tree Entry
+      td= nfd.nameTreeEntries
+    tr
+      td FIB Entries
+      td= nfd.fibEntries
+    tr
+      td PIT Entries
+      td= nfd.pitEntries
+    tr
+      td Measurements entries
+      td= nfd.measureEntries
+    tr
+      td CS entries
+      td= nfd.csEntries
+    tr
+      td In Interests
+      td= nfd.inInterests
+    tr
+      td Out Interests
+      td= nfd.outInterests
+    tr
+      td In Data
+      td= nfd.inData
+    tr
+      td Out Data
+      td= nfd.outData

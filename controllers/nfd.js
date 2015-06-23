@@ -7,21 +7,28 @@ var ProtobufTlv = require('..').ProtobufTlv;
 
 function onStatus(res, content){
   console.log("onStatus");
-  console.log("..%j", content);
-  var builder = ProtoBuf.loadProtoFile("../modules/protocol/nfd-status.proto");
+  console.log("..%j", content.getContent());
+  var builder = ProtoBuf.loadProtoFile("./modules/protocol/nfd-status.proto");
   console.log("1");
-  var descriptor = builder.lookup("ndn_message.NFDForwardingStatus");
+  var descriptor = builder.lookup("ndn_message.NFDForwardingStatusMessage");
   console.log("2");
   var NFDForwardingStatus = descriptor.build();
   console.log("3");
 
   var nfdForwardingStatus = new NFDForwardingStatus();
-  ProtobufTlv.decode(nfdForwardingStatus, descriptor, content);
+  ProtobufTlv.decode(nfdForwardingStatus, descriptor, content.getContent());
+  var nfdId = "";
+  if(content.getSignatureOrMetaInfoKeyLocator() != null &&
+      content.getSignatureOrMetaInfoKeyLocator().getType() != null)
+    nfdId = content.getSignatureOrMetaInfoKeyLocator().getKeyName().toUri();
+
   res.render('nfd', { nfdData: [{
-                    version: nfdForwardingStatus.version,
-                    startTime: nfdForwardingStatus.start_time,
-                    currentTime: nfdForwardingStatus.current_time,
-                    NameTreeEntires: nfdForwardingStatus.name_tree_entries,
+                    nfdid: nfdId,
+                    version: nfdForwardingStatus.version.toString("utf8"),
+                    startTime: new Date(nfdForwardingStatus.start_time),
+                    currentTime: new Date(nfdForwardingStatus.current_time),
+                    upTime: nfdForwardingStatus.current_time - nfdForwardingStatus.start_time + " s",
+                    nameTreeEntries: nfdForwardingStatus.name_tree_entries,
                     fibEntries: nfdForwardingStatus.fib_entries,
                     pitEntries: nfdForwardingStatus.pit_entries,
                     measureEntries: nfdForwardingStatus.measure_entires,
@@ -29,9 +36,7 @@ function onStatus(res, content){
                     inInterests: nfdForwardingStatus.in_interests,
                     inData: nfdForwardingStatus.in_data,
                     outInterests: nfdForwardingStatus.out_interests,
-                    outData: nfdForwardingStatus.out_data,
-                    inBytes: nfdForwardingStatus.in_bytes,
-                    outBytes: nfdForwardingStatus.out_bytes      }]
+                    outData: nfdForwardingStatus.out_data}]
  });
 };
 
@@ -45,7 +50,7 @@ function onError(res, error, errorCode){
 /* GET home page. */
 router.get('/status', function(req, res, next) {
   console.log("Stuff");
-  backend.getData(res, statusName, onStatus, onError);
+  backend.getData(res, statusName, onStatus, onError, false);
   console.log("Stuff1");
 });
 

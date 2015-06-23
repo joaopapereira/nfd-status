@@ -5,20 +5,18 @@ package ndn_message;
 
 // Protobuf has no "outer" message type, so we need to put the TLV FaceStatus
 // message inside an outer "typeless" ForwardingStatus.
-message NFDForwardingStatus {
-    required string version              = 128;
-    required uint64 start_time           = 129;
-    required uint64 current_time         = 130;
-    required uint64 name_tree_entries    = 131;
-    required uint64 fib_entries          = 132;
-    required uint64 pit_entries          = 133;
-    required uint64 measure_entires      = 134;
-    required uint64 cs_entires           = 135;
-    
-    required uint64 in_interests         = 144;
-    required uint64 in_data              = 145;
-    required uint64 out_interests        = 146;
-    required uint64 out_data             = 147;
-    required uint64 in_bytes             = 148;
-    required uint64 out_bytes            = 149;
+message NFDForwardingStatusMessage {
+    required bytes version              = 128;
+    required uint32 start_time           = 129;
+    required uint32 current_time         = 130;
+    required uint32 name_tree_entries    = 131;
+    required uint32 fib_entries          = 132;
+    required uint32 pit_entries          = 133;
+    required uint32 measure_entires      = 134;
+    required uint32 cs_entires           = 135;
+
+    required uint32 in_interests         = 144;
+    required uint32 in_data              = 145;
+    required uint32 out_interests        = 146;
+    required uint32 out_data             = 147;
 }
