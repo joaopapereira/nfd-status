@@ -1,0 +1,20 @@
+- each ribEntry in ribData
+  h3 Rib Entry:
+  p= ribEntry.name
+  h3 Next Hops
+  table
+    thead
+      td Face ID
+      td Origin
+      td Cost
+      td Flags
+      td Expiration Period
+    tbody
+      - each route in ribEntry.routes
+        tr
+          td= route.face_id
+          td= route.origin
+          td= route.cost
+          td= route.flags
+          td= route.expiration_period
+  hr

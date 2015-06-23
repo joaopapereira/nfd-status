@@ -1,0 +1,31 @@
+table
+  thead
+    td Face ID
+    td Remote URI
+    td Local URI
+    td Scope
+    td Persistency
+    td LinkType
+    td Expires in
+    td In Interests
+    td In Data
+    td In Bytes
+    td Out Interests
+    td Out Data
+    td Out Bytes
+  - each face in faceList
+    tr
+      td= face.face_id
+      td= face.uri
+      td= face.local_uri
+      td= face.scope
+      td= face.persistency
+      td= face.link_type
+      td= face.expires
+      td= face.interests.in
+      td= face.data.in
+      td= face.bytes.in
+      td= face.interests.out
+      td= face.data.out
+      td= face.bytes.out
+    

@@ -1,0 +1,15 @@
+- each fibEntry in fibData
+  h3 Fib Entry:
+  p= fibEntry.name
+  h3 Next Hops
+  table
+    thead
+      td Face ID
+      - each hop in fibEntry.next_hops
+        td= hop.face_id
+    tbody
+      tr
+        td Cost
+        - each hop in fibEntry.next_hops
+          td= hop.cost
+  hr

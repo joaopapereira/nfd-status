@@ -95,12 +95,15 @@ h5 {
 
 thead
 {
-    font-weight: normal;
     padding: 8px;
     background: #EAF4EF;
+    background-color: orange;
     border-top: 1px solid #99CCB2;
     color: #727272;
     text-align: left;
+    font-weight: bold;
+    border-collapse:collapse;
+    border:1px solid gray;
 }
 
 thead.border-left {
@@ -164,6 +167,13 @@ td#menu:hover{
 td{
     padding-left: 2px;
     padding-right: 2px;
+    border-collapse:collapse;
+    border:1px solid gray;
+
+    padding: 2px;
+    color: #000;
+    text-align: center;
+    min-width: 20px;
 }
 
 tr.center td
@@ -191,8 +201,15 @@ tfoot {
 .odd {
     background-color: #eeeeee;
 }
+tr:nth-child(even) {
+    background-color: #eeeeee;
+}
 
 .highlighted {
     background-color: #cccccc;
     cursor: pointer;
+}
+
+#loading {
+    position: absolute; width: 100%; height: 100%; background: url('/images/spinner.gif') no-repeat center center;
 }

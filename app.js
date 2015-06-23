@@ -9,6 +9,9 @@ var routes = require('./routes/index');
 var router = express.Router();
 
 var nfd = require('./controllers/nfd');
+var faces = require('./controllers/faces');
+var fib = require('./controllers/fib');
+var rib = require('./controllers/rib');
 
 var app = express();
 
@@ -24,16 +27,32 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-router.use('/nfd/:id', nfd);
+router.use('/nfd/', nfd);
+router.use('/faces/', faces);
+router.use('/fib/', fib);
+router.use('/rib/', rib);
 router.use('/', routes);
 app.use('/', router);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
+function logErrors(err, req, res, next) {
+  console.error(err.stack);
   next(err);
-});
+}
+function clientErrorHandler(err, req, res, next) {
+  if (req.xhr) {
+    res.status(500).send({ error: 'Something blew up!' });
+  } else {
+    next(err);
+  }
+}
+function errorHandler(err, req, res, next) {
+  res.status(500);
+  res.render('error', { error: err });
+}
+
+app.use(logErrors);
+app.use(clientErrorHandler);
+app.use(errorHandler);
 
 
 // error handlers
@@ -45,7 +64,8 @@ if (app.get('env') === 'development') {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: err
+      errorCode: err.status,
+      errorStack: err.stack
     });
   });
 }
@@ -56,9 +76,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    errorCode: err.status,
+    errorStack: ""
   });
 });
 
+app.use(express.static('public'));
 
 module.exports = app;

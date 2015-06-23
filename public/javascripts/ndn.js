@@ -96,10 +96,10 @@ CryptoJS v3.1.2
 code.google.com/p/crypto-js
 (c) 2009-2013 by Jeff Mott. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
-sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
 subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -820,10 +820,10 @@ CryptoJS v3.1.2
 code.google.com/p/crypto-js
 (c) 2009-2013 by Jeff Mott. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
-sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
 subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -1015,7 +1015,7 @@ exports.CryptoJS = C;
 module.exports = exports;
 // Copyright (c) 2003-2009  Tom Wu
 // All Rights Reserved.
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
@@ -1026,7 +1026,7 @@ module.exports = exports;
 //
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // See "jrsasig-THIRDPARTYLICENSE.txt" for details.
 
 var b64map="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
@@ -1034,7 +1034,7 @@ var b64map="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
   , BI_RM = "0123456789abcdefghijklmnopqrstuvwxyz";
 
 function int2char(n) {
-  return BI_RM.charAt(n); 
+  return BI_RM.charAt(n);
 }
 
 function hex2b64(h) {
@@ -1113,7 +1113,7 @@ exports.hex2b64  = hex2b64;
 module.exports = exports;
 // Copyright (c) 2003-2009  Tom Wu
 // All Rights Reserved.
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
@@ -1124,7 +1124,7 @@ module.exports = exports;
 //
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // See "jrsasig-THIRDPARTYLICENSE.txt" for details.
 
 // Depends on jsbn.js and rng.js
@@ -1229,7 +1229,7 @@ function oaep_pad(s, n, hash)
     var DB = rstr_sha1('') + PS + '\x01' + s;
     var seed = new Array(SHA1_SIZE);
     new SecureRandom().nextBytes(seed);
-    
+
     var dbMask = oaep_mgf1_arr(seed, DB.length, hash || rstr_sha1);
     var maskedDB = [];
 
@@ -1321,7 +1321,7 @@ exports.RSAKey = RSAKey;
 module.exports = exports;
 // Copyright (c) 2003-2009  Tom Wu
 // All Rights Reserved.
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
@@ -1332,7 +1332,7 @@ module.exports = exports;
 //
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // See "jrsasig-THIRDPARTYLICENSE.txt" for details.
 
 // Depends on rsa.js and jsbn2.js
@@ -1524,7 +1524,7 @@ function RSAGenerate(B,E) {
     var phi = p1.multiply(q1);
     if(phi.gcd(ee).compareTo(BigInteger.ONE) == 0) {
       this.n = this.p.multiply(this.q);	// this.n = p * q
-      this.d = ee.modInverse(phi);	// this.d = 
+      this.d = ee.modInverse(phi);	// this.d =
       this.dmp1 = this.d.mod(p1);	// this.dmp1 = d mod (p - 1)
       this.dmq1 = this.d.mod(q1);	// this.dmq1 = d mod (q - 1)
       this.coeff = this.q.modInverse(this.p);	// this.coeff = (q ^ -1) mod p
@@ -1602,7 +1602,7 @@ module.exports = exports;
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * This software is licensed under the terms of the MIT License.
  * http://kjur.github.com/jsrsasign/license
  *
@@ -1628,7 +1628,7 @@ function parseBigInt(str,r) {
   return new BigInteger(str,r);
 }
 
-/** 
+/**
  * kjur's class library name space
  * @name KJUR
  * @namespace kjur's class library name space
@@ -2097,7 +2097,7 @@ KJUR.crypto.Signature = function(params) {
 		var keyLen = this.prvKey.n.bitLength();
 		this.sHashHex = this.md.digest();
 		this.hDigestInfo = util.getDigestInfoHex(this.sHashHex, this.mdAlgName);
-		this.hPaddedDigestInfo = 
+		this.hPaddedDigestInfo =
                     util.getPaddedDigestInfoHex(this.sHashHex, this.mdAlgName, keyLen);
 
 		var biPaddedDigestInfo = parseBigInt(this.hPaddedDigestInfo, 16);
@@ -2310,13 +2310,13 @@ module.exports = exports;
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // This software is licensed under the terms of the MIT License.
 // http://kjur.github.com/jsrsasign/license/
-// 
+//
 //
 // Depends on:
 //
@@ -2425,10 +2425,10 @@ module.exports = exports;
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // This software is licensed under the terms of the MIT License.
 // http://kjur.github.com/jsrsasign/license/
 //
@@ -2698,7 +2698,7 @@ function _rsasign_verifyString(sMsg, hSig) {
     var biDecryptedSig = this.doPublic(biSig);
     var hDigestInfo = biDecryptedSig.toString(16).replace(/^1f+00/, '');
     var digestInfoAry = _rsasign_getAlgNameAndHashFromHexDisgestInfo(hDigestInfo);
-  
+
     if (digestInfoAry.length == 0) return false;
     var algName = digestInfoAry[0];
     var diHashValue = digestInfoAry[1];
@@ -2833,10 +2833,10 @@ module.exports = exports;
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // This software is licensed under the terms of the MIT License.
 // http://kjur.github.com/jsrsasign/license/
 //
@@ -2856,9 +2856,9 @@ function parseBigInt(str,r) {
 //   f('3080....0000', 2) ... 80 ... -1
 //
 //   Requirements:
-//   - ASN.1 type octet length MUST be 1. 
+//   - ASN.1 type octet length MUST be 1.
 //     (i.e. ASN.1 primitives like SET, SEQUENCE, INTEGER, OCTETSTRING ...)
-//   - 
+//   -
 
 /**
  * @fileOverview
@@ -3123,7 +3123,7 @@ exports.ASN1HEX = ASN1HEX;
 module.exports = exports;
 /*! x509-1.1.js (c) 2012 Kenji Urushima | kjur.github.com/jsrsasign/license
  */
-// 
+//
 // x509.js - X509 class to read subject public key from certificate.
 //
 // version: 1.1 (10-May-2012)
@@ -3138,10 +3138,10 @@ module.exports = exports;
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // This software is licensed under the terms of the MIT License.
 // http://kjur.github.com/jsrsasign/license
 //
@@ -3185,7 +3185,7 @@ function _x509_getHexTbsCertificateFromCert(hCert) {
 // NOTE: v1 and v3 supported
 function _x509_getSubjectPublicKeyInfoPosFromCertHex(hCert) {
   var pTbsCert = ASN1HEX.getStartPosOfV_AtObj(hCert, 0);
-  var a = ASN1HEX.getPosArrayOfChildren_AtObj(hCert, pTbsCert); 
+  var a = ASN1HEX.getPosArrayOfChildren_AtObj(hCert, pTbsCert);
   if (a.length < 1) return -1;
   if (hCert.substring(a[0], a[0] + 10) == "a003020102") { // v3
     if (a.length < 6) return -1;
@@ -3199,8 +3199,8 @@ function _x509_getSubjectPublicKeyInfoPosFromCertHex(hCert) {
 // NOTE: Without BITSTRING encapsulation.
 function _x509_getSubjectPublicKeyPosFromCertHex(hCert) {
   var pInfo = _x509_getSubjectPublicKeyInfoPosFromCertHex(hCert);
-  if (pInfo == -1) return -1;    
-  var a = ASN1HEX.getPosArrayOfChildren_AtObj(hCert, pInfo); 
+  if (pInfo == -1) return -1;
+  var a = ASN1HEX.getPosArrayOfChildren_AtObj(hCert, pInfo);
   if (a.length != 2) return -1;
   var pBitString = a[1];
   if (hCert.substring(pBitString, pBitString + 2) != '03') return -1;
@@ -3212,7 +3212,7 @@ function _x509_getSubjectPublicKeyPosFromCertHex(hCert) {
 
 function _x509_getPublicKeyHexArrayFromCertHex(hCert) {
   var p = _x509_getSubjectPublicKeyPosFromCertHex(hCert);
-  var a = ASN1HEX.getPosArrayOfChildren_AtObj(hCert, p); 
+  var a = ASN1HEX.getPosArrayOfChildren_AtObj(hCert, p);
   if (a.length != 2) return [];
   var hN = ASN1HEX.getHexOfV_AtObj(hCert, a[0]);
   var hE = ASN1HEX.getHexOfV_AtObj(hCert, a[1]);
@@ -3399,7 +3399,7 @@ exports.X509 = X509;
 module.exports = exports;
 // Copyright (c) 2005  Tom Wu
 // All Rights Reserved.
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
@@ -3410,7 +3410,7 @@ module.exports = exports;
 //
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // See "jrsasig-THIRDPARTYLICENSE.txt" for details.
 
 // Basic JavaScript BN library - subset useful for RSA encryption.
@@ -3478,11 +3478,17 @@ function am3(i,x,w,j,c,n) {
   }
   return c;
 }
-if(j_lm && (navigator.appName == "Microsoft Internet Explorer")) {
+var appName = null;
+try{
+  appName = navigator.appName
+}catch(e){
+
+}
+if(j_lm && (appName == "Microsoft Internet Explorer")) {
   BigInteger.prototype.am = am2;
   dbits = 30;
 }
-else if(j_lm && (navigator.appName != "Netscape")) {
+else if(j_lm && (appName != "Netscape")) {
   BigInteger.prototype.am = am1;
   dbits = 26;
 }
@@ -3970,7 +3976,7 @@ BigInteger.ZERO = nbv(0);
 BigInteger.ONE = nbv(1);
 // Copyright (c) 2005-2009  Tom Wu
 // All Rights Reserved.
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
 // "Software"), to deal in the Software without restriction, including
@@ -3981,7 +3987,7 @@ BigInteger.ONE = nbv(1);
 //
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // See "jrsasig-THIRDPARTYLICENSE.txt" for details.
 
 // Extended JavaScript BN functions, required for RSA private ops.
@@ -24450,8 +24456,12 @@ NDN.prototype = new Face({ getTransport: function(){}, getConnectionInfo: functi
 
 exports.NDN = NDN;
 
+
 NDN.supported = Face.supported;
 NDN.UNOPEN = Face.UNOPEN;
 NDN.OPEN_REQUESTED = Face.OPEN_REQUESTED;
 NDN.OPENED = Face.OPENED;
 NDN.CLOSED = Face.CLOSED;
+
+console.log(exports.Face);
+module.exports = exports;
