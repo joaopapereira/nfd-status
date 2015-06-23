@@ -1,0 +1,9 @@
+table
+  thead
+    td Namespace
+    td Strategy name
+  tbody
+    - each strategyEntry in strategyData
+      tr
+        td= strategyEntry.namespace
+        td= strategyEntry.strategy_name

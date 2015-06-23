@@ -12,6 +12,7 @@ var nfd = require('./controllers/nfd');
 var faces = require('./controllers/faces');
 var fib = require('./controllers/fib');
 var rib = require('./controllers/rib');
+var strategy = require('./controllers/strategy');
 
 var app = express();
 
@@ -31,6 +32,7 @@ router.use('/nfd/', nfd);
 router.use('/faces/', faces);
 router.use('/fib/', fib);
 router.use('/rib/', rib);
+router.use('/strategy/', strategy);
 router.use('/', routes);
 app.use('/', router);
 

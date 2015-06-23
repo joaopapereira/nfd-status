@@ -1,0 +1,24 @@
+// Load this file using:
+// var builder = ProtoBuf.loadProtoFile("strategy-entry.proto");
+
+package ndn_message;
+
+// Protobuf has no "outer" message type, so we need to put the TLV StrategyEntry
+// message inside an outer "typeless" StrategyEntryMessage.
+message StrategyEntryMessage {
+  message Name {
+    repeated bytes component = 8;
+  }
+  message Strategy {
+    required Name name = 7;
+  }
+
+  message StrategyEntry {
+    required Name namespace = 7;
+    required Strategy strategy_name = 107;
+
+  }
+
+  // A StrategyEntryMessage has repeated StrategyEntry.
+  repeated StrategyEntry strategy_entry = 128;
+}
